@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>My Movies</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="./Assets/fontawesome/css/all.min.css">
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        #header {
+            background-color: black;
+            width: 100%;
+            height: 100px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+        }
+
+        #brand {
+            color: white;
+            font-size: 35px;
+        }
+
+        #formContainer {
+            margin-top: 50px;
+            display: none;
+            flex-flow: column;
+            align-items: center;
+        }
+
+        .form-group {
+            width: 50%;
+        }
+
+        .container {
+            margin-top: 50px;
+        }
+
+        .nav-item {
+            cursor: pointer;
+        }
+
+        .card-container{
+            margin-bottom:100px;
+        }
+
+        .icon-container{
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .icon-container i{
+            margin:10px
+        }
+    </style>
+</head>
+
+<body>
+    <div id="header">
+        <div id="brand">My Movies</div>
+        <button class="btn btn-secondary" id="addMovie">Add Movie</button>
+    </div>
+    <div id="formContainer">
+        <div class="form-group">
+            <label for="movieName">Movie Name</label>
+            <input type="text" class="form-control" id="movieName" placeholder="Movie Name">
+        </div>
+        <div class="form-group">
+            <label for="movieGenre">Movie Genre</label>
+            <select class="form-control" id="movieGenre">
+                <option selected>Other</option>
+                <option>Horror</option>
+                <option>Comedy</option>
+                <option>Romance</option>
+                <option>Science Fiction</option>
+                <option>Action</option>
+                <option>Adventure</option>
+                <option>Thriller</option>
+                <option>Documentary</option>
+                <option>Drama</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="movieDescription">Movie Description</label>
+            <textarea class="form-control" id="movieDescription" rows="5"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="movieCoverImage">Movie cover image</label>
+            <input type="text" class="form-control" id="movieCoverImage" placeholder="Movie cover image">
+        </div>
+        <div class="form-group">
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="isWatched">
+                <label class="form-check-label" for="isWatched">Watched</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="isFavourite">
+                <label class="form-check-label" for="isFavourite">Favourite</label>
+            </div>
+        </div>
+        <div class="form-group">
+            <button class="btn btn-primary" id="createMovieBtn">Create</button>
+            <button class="btn btn-dark" id="cancelBtn">Cancel</button>
+        </div>
+    </div>
+    <div class="container">
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <div class="nav-link active">All</div>
+            </li>
+            <li class="nav-item">
+                <div class="nav-link">Watched</div>
+            </li>
+            <li class="nav-item">
+                <div class="nav-link">Watchlist</div>
+            </li>
+            <li class="nav-item">
+                <div class="nav-link">Favourites</div>
+            </li>
+        </ul>
+    </div>
+    <div class="container card-container">
+        <div class="row" id="cardRow">
+            <!-- <div class="col col-4">
+                <div class="card">
+                    <img src="https://m.media-amazon.com/images/M/MV5BMDFkYTc0MGEtZmNhMC00ZDIzLWFmNTEtODM1ZmRlYWMwMWFmXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_UX182_CR0,0,182,268_AL_.jpg"
+                        class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title movie-title">The Shawshank Redemption</h5>
+                        <p class="movie-genre">Drama</p>
+                        <p class="card-text movie-description">Two imprisoned men bond over a number of years, finding
+                            solace and eventual redemption through acts of common decency.</p>
+                    </div>
+                    <div class="icon-container">
+                        <i class="fas fa-heart fa-5x"></i>
+                        <i class="fas fa-check fa-5x"></i>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+    <script src="./Scripts/app.js"></script>
+</body>
+
+</html>
